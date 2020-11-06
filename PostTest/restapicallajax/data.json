@@ -1,0 +1,19 @@
+[{
+    "name":"Roshan",
+    "city":"Bangalore",
+    "email":"ros@ltts.com",
+    "phone":"241234123524"
+},
+{
+    "name":"Rohan",
+    "city":"Mumbai",
+    "email":"rohan@ltts.com",
+    "phone":"444545534564"
+},
+{
+    "name":"vishu",
+    "city":"Delhi",
+    "email":"vishu@ltts.com",
+    "phone":"4523453655"
+}
+]

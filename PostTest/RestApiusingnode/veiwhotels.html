@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShowRoom</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#mybtn1').click(function(){
+            $.get ("hn.txt" , function(data,status){
+                $('#mydiv').html('<b>'+data+'</b>');
+            });
+        });
+    });
+    $(document).ready(function(){
+            $('#mybtn2').click(function(){
+            $.get ("hc.txt" , function(data,status){
+                $('#mydiv2').html('<b>'+data+'</b>');
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    List of Hotels
+    <button id="mybtn1">Show</button>
+    <div id="mydiv">
+    </div>
+    List of hotels by city
+    <button id="mybtn2">Show</button>
+    <div id="mydiv2">
+    </div>
+    <h2>Hotel by Type</h2>
+    <input list="cat" name="mcity"/>
+    <form>
+    <datalist id="cat">
+        <option value="Veg"></option>
+        <option value="Non Veg"></option>
+    </datalist>
+    <h2>Hotel by Cuisine</h2>
+    <input list="cat" name="mcity"/>
+    <form>
+    <datalist id="cat">
+        <option value="Indian"></option>
+        <option value="Chinese"></option>
+    </datalist>
+    </form>
+</body>
+</html>

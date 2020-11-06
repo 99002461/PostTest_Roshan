@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        div{
+            text-align:left;
+            background-color:royalblue;
+        }
+        h1{
+            text-align:left;
+            background-color:greenyellow;
+            padding:100px;
+            border: 10pt solid ;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script>
+        var namelist=["Roshan","Neha","Sarthak","Rohan"];
+        function clearall(){
+            document.getElementById("tname").value="";
+            document.getElementById("tpass").value="";
+            document.getElementById("temail").value="";
+            document.getElementById("tphone").value="";
+            document.getElementById("tcity").value=""; 
+        }
+        function register(){
+            var pwd=/^(?=.*[a-z][!@#$%^&*])(?=.*[A-Z][!@#$%^&*])(?=.*[0-9][!@#$%^&*])/;
+            var ucase=/[A-Z]/;
+            var lcase=/[a-z]/;
+            var number=/[0-9]/;
+            var mail=/[a-zA-Z0-9.]+@[a-z]+\.[a-z]/
+            var specialcharcter=/[!@#$%^&*]/;
+            var flag=0;
+            var name=document.getElementById("tname").value;
+            var password=document.getElementById("tpass").value;
+            var email=document.getElementById("temail").value;
+            var phone=document.getElementById("tphone").value;
+            var city=document.getElementById("tcity").value;
+            var atpos=email.indexOf("@");
+            var dotpos=email.lastIndexOf(".");
+            if(name.length<=5)
+            alert("Given username too short");
+            else if(name.length>=15)
+            alert("Given user name too long");
+            else if(!((password.match(ucase))&&(password.match(lcase))&&(password.match(number))&&(password.match(specialcharcter))))
+            {
+                alert("Password should have lowercase, uppercase, number and one special char")
+            }
+            
+            else if(atpos<1 || dotpos<atpos+2 || dotpos+2>email.length){
+                debugger
+                alert("invalid email id")
+            }
+            else if(phone.length>0)
+            {
+                if(phone.length<10 || phone.length>10)
+                alert("Invaild phone number")
+            }
+            for (let index = 0; index < namelist.length; index++) {
+                const element = namelist[index];
+                if(!element.localeCompare(name)){
+                alert("name exists"+element)
+                flag=1;
+                break;}
+            }
+            
+
+            if(flag==0)
+            {debugger
+            alert("User registration is successfull")}
+             
+
+        }
+        $(document).ready(function(){
+            $('#mybutton').click(function(){
+            $.get ("data.json" , function(data,status){
+            data.forEach(book => {
+                var str='';
+                for (const prop in book) {
+                    str+= prop+' '+book[prop]+' '+'<br>';
+                }
+                $('#mydiv').append(str).append('<br>');
+            });
+                
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+  <h1>Registration Form</h1><hr/>
+  <div>
+      <p>Enter Username: <input type="text" id="tname"></p>
+      <p>Enter Password: <input type="password" id="tpass"></p>
+      <p>Enter Email id: <input type="email" id="temail"></p>
+      <p>Enter Phone No: <input type="number" id="tphone"></p>
+      <p>Enter City    : <input type="text" id="tcity"></p>
+      <p><button onclick="register()">Submit</button> 
+        <button onclick="clearall()">Clear</button>
+        <button id="mybutton">Print details</button></p>
+  </div>
+  
+    <div id="mydiv"></div> 
+</body>
+</html>

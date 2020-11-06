@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShowRoom</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#mybtn1').click(function(){
+            $.get ("l.txt" , function(data,status){
+                $('#mydiv').html('<b>'+data+'</b>');
+            });
+        });
+    });
+    $(document).ready(function(){
+            $('#mybtn2').click(function(){
+            $.get ("m.txt" , function(data,status){
+                $('#mydiv2').html('<b>'+data+'</b>');
+            });
+        });
+    });
+    $(document).ready(function(){
+            $('#mybtn3').click(function(){
+            $.get ("t.txt" , function(data,status){
+                $('#mydiv3').html('<b>'+data+'</b>');
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    <h2>Categories</h2>
+    <input list="cat" name="mcity"/>
+    <form>
+    <datalist id="cat">
+        <option value="Laptop"></option>
+        <option value="Moblie"></option>
+        <option value="TV"></option>
+    </datalist>
+    </form>
+    <button id="mybtn1">Show laptop</button>
+    <div id="mydiv">
+    </div>
+    <button id="mybtn2">Show Moblies</button>
+    <div id="mydiv2">
+    </div>
+    <button id="mybtn3">Show Tv</button>
+    <div id="mydiv3">
+    </div>
+</body>
+</html>

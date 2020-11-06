@@ -1,0 +1,19 @@
+[{
+    "name":"Oyo Rooms",
+    "city":"Bangalore",
+    "type":"veg",
+    "cuisine":"Indian"
+},
+{
+    "name":"Marriot",
+    "city":"Mumbai",
+    "type":"veg",
+    "cuisine":"Chinese"
+},
+{
+    "name":"ITC Maratha",
+    "city":"Delhi",
+    "type":"non veg",
+    "cuisine":"Indian"
+}
+]
